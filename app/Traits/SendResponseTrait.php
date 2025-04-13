@@ -11,7 +11,7 @@ trait SendResponseTrait
     {
         return response()->json([
             'message' => $message,
-            'data' => !isNull($data) ? $data : [],
+            'data' => !is_null($data) ? $data : [],
         ], $status);
     }
 
@@ -19,7 +19,7 @@ trait SendResponseTrait
     {
         return response()->json([
             'message' => $message,
-            'error' => !isNull($this->error()) ? $error : [],
+            'error' => !is_null($error) ? $error : []
         ], $status);
     }
 }
