@@ -1,7 +1,7 @@
 <?php
 
+use App\Http\Controllers\User\UserController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return 'this is api route test';
-});
+
+Route::post('register', [UserController::class, 'register']);
