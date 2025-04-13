@@ -23,6 +23,7 @@ class User extends Authenticatable
         'email',
         'password',
         'phone_number',
+        'active',
     ];
 
     /**
@@ -46,5 +47,18 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    public function addToken(): void
+    {
+        $this->tokens()->delete();
+        $token = $this->createToken('token')->plainTextToken;
+        $this->token = $token;
+    }
+
+    public function activeUser(): void
+    {
+        $this->active = true;
+        $this->save();
     }
 }
